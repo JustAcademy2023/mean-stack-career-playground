@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEAN Stack Career Playground | Angular, Node.js & MongoDB Career Guide</title>
+<meta name="description" content="A playful guide to MEAN stack development: MongoDB, Express, Angular and Node.js explained in plain words, with an interactive request journey, a beginner roadmap, career paths, Pune bootcamps, courses and handpicked guides.">
+<meta property="og:title" content="MEAN Stack Career Playground">
+<meta property="og:description" content="Four letters. One language. A whole career. Learn how MongoDB, Express, Angular and Node.js work together.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFF6E5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='16' height='16' fill='%234ADE80'/%3E%3Crect x='16' width='16' height='16' fill='%23FFD23F'/%3E%3Crect y='16' width='16' height='16' fill='%23FF5C7A'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%236EA8FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>document.documentElement.className += ' js';</script>
+<style>
+:root {
+  --cream: #FFF6E5;
+  --ink: #15131F;
+  --green: #4ADE80;
+  --yellow: #FFD23F;
+  --pink: #FF5C7A;
+  --blue: #6EA8FF;
+  --orange: #FF8A3D;
+  --white: #FFFFFF;
+  --shadow: 6px 6px 0 var(--ink);
+  --shadow-lg: 10px 10px 0 var(--ink);
+  --radius: 22px;
+  --display: 'Bricolage Grotesque', 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'Space Mono', 'Courier New', ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  font-family: var(--display);
+  color: var(--ink);
+  background-color: var(--cream);
+  background-image: radial-gradient(rgba(21, 19, 31, 0.13) 1.3px, transparent 1.3px);
+  background-size: 24px 24px;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+img, svg { max-width: 100%; }
+.wrap { width: min(1180px, 92%); margin-inline: auto; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--cream); padding: 10px 16px; border-radius: 10px; z-index: 100; }
+.skip:focus { left: 8px; }
+
+/* Header */
+header.site {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--cream);
+  border-bottom: 3px solid var(--ink);
+}
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
+.logo { display: grid; grid-template-columns: 1fr 1fr; width: 34px; height: 34px; border: 3px solid var(--ink); border-radius: 9px; overflow: hidden; }
+.logo i:nth-child(1) { background: var(--green); }
+.logo i:nth-child(2) { background: var(--yellow); }
+.logo i:nth-child(3) { background: var(--pink); }
+.logo i:nth-child(4) { background: var(--blue); }
+nav.main { display: flex; align-items: center; gap: 6px; }
+nav.main a { text-decoration: none; font-weight: 700; padding: 8px 14px; border-radius: 999px; border: 2px solid transparent; transition: 0.15s; }
+nav.main a:hover { border-color: var(--ink); background: var(--white); }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-weight: 800; font-size: 1rem;
+  text-decoration: none; cursor: pointer;
+  padding: 14px 24px; border-radius: 16px;
+  border: 3px solid var(--ink); background: var(--yellow); color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.btn:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+.btn:active { transform: translate(5px, 5px); box-shadow: 0 0 0 var(--ink); }
+.btn.white { background: var(--white); }
+.btn.pink { background: var(--pink); }
+.btn.small { padding: 10px 18px; font-size: 0.95rem; box-shadow: 4px 4px 0 var(--ink); }
+.menu-btn { display: none; background: var(--white); border: 3px solid var(--ink); border-radius: 12px; padding: 8px 12px; font-family: var(--mono); font-weight: 700; cursor: pointer; }
+
+/* Hero */
+.hero { padding: 64px 0 40px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+.kicker {
+  display: inline-block; font-family: var(--mono); font-weight: 700; font-size: 0.82rem;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--white); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+h1 { font-size: clamp(2.6rem, 6.2vw, 5rem); line-height: 1.02; letter-spacing: -0.035em; margin: 22px 0 22px; font-weight: 800; text-wrap: balance; }
+mark { background: linear-gradient(transparent 55%, var(--yellow) 55%); color: inherit; padding: 0 4px; }
+mark.pk { background: linear-gradient(transparent 55%, var(--pink) 55%); }
+mark.gr { background: linear-gradient(transparent 55%, var(--green) 55%); }
+.lead { font-size: 1.2rem; max-width: 56ch; margin-bottom: 30px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 30px; }
+.facts { display: flex; flex-wrap: wrap; gap: 12px; }
+.fact { font-family: var(--mono); font-size: 0.85rem; font-weight: 700; border: 2px dashed var(--ink); border-radius: 12px; padding: 6px 12px; background: rgba(255,255,255,0.6); }
+
+.visual { position: relative; padding: 10px 10px 30px; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.tile {
+  background: var(--c); border: 3px solid var(--ink); border-radius: var(--radius);
+  padding: 18px 18px 16px; box-shadow: var(--shadow);
+  transform: rotate(var(--r)); animation: floaty 6s ease-in-out infinite; animation-delay: var(--d);
+}
+.tile b { display: block; font-size: clamp(3.2rem, 8vw, 5.2rem); line-height: 0.95; font-weight: 800; }
+.tile span { font-family: var(--mono); font-weight: 700; font-size: 0.85rem; }
+.code {
+  position: relative; margin: -6px 18px 0 -6px; background: var(--ink); color: #D9FBE5;
+  border: 3px solid var(--ink); border-radius: 18px; padding: 18px 20px;
+  font-family: var(--mono); font-size: 0.86rem; line-height: 1.7; box-shadow: 6px 6px 0 var(--pink);
+  transform: rotate(-1.5deg); overflow-x: auto;
+}
+.code .k { color: var(--yellow); }
+.code .s { color: var(--blue); }
+.code .c { color: #9A98B0; }
+.sticker {
+  position: absolute; top: -16px; right: -6px; width: 118px; height: 118px; border-radius: 50%;
+  background: var(--orange); border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink);
+  display: grid; place-items: center; text-align: center; font-weight: 800; font-size: 0.9rem; line-height: 1.15; padding: 14px;
+  transform: rotate(12deg); z-index: 3; animation: wob 5s ease-in-out infinite;
+}
+@keyframes floaty { 0%, 100% { transform: translateY(0) rotate(var(--r)); } 50% { transform: translateY(-10px) rotate(var(--r)); } }
+@keyframes wob { 0%, 100% { transform: rotate(12deg); } 50% { transform: rotate(4deg) scale(1.05); } }
+
+/* Ticker */
+.ticker { margin: 40px 0 10px; background: var(--ink); color: var(--cream); border-block: 3px solid var(--ink); overflow: hidden; transform: rotate(-1deg); }
+.track { display: flex; width: max-content; animation: slide 28s linear infinite; }
+.track div { display: flex; align-items: center; gap: 28px; padding: 14px 14px; white-space: nowrap; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em; }
+.track em { display: inline-block; width: 12px; height: 12px; background: var(--yellow); border-radius: 3px; transform: rotate(45deg); font-style: normal; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Sections */
+section.block { padding: 80px 0 20px; }
+.head { max-width: 760px; margin-bottom: 40px; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; margin-top: 16px; text-wrap: balance; }
+.sub { margin-top: 14px; font-size: 1.12rem; max-width: 62ch; }
+
+/* Letter cards */
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.letter {
+  background: var(--white); border: 3px solid var(--ink); border-radius: var(--radius); box-shadow: var(--shadow);
+  overflow: hidden; display: flex; flex-direction: column; transition: transform 0.15s, box-shadow 0.15s;
+}
+.letter:hover { transform: translate(-4px, -4px) rotate(-0.6deg); box-shadow: var(--shadow-lg); }
+.letter .top { background: var(--c); border-bottom: 3px solid var(--ink); padding: 14px 20px; display: flex; align-items: flex-end; justify-content: space-between; }
+.letter .top b { font-size: 5rem; line-height: 0.9; font-weight: 800; }
+.letter .top small { font-family: var(--mono); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+.letter .body { padding: 20px; }
+.letter h3 { font-size: 1.4rem; letter-spacing: -0.02em; }
+.letter .role { font-family: var(--mono); font-size: 0.82rem; font-weight: 700; margin: 4px 0 10px; text-transform: uppercase; opacity: 0.75; }
+
+/* Simulator */
+.sim { background: var(--white); border: 3px solid var(--ink); border-radius: 28px; box-shadow: var(--shadow-lg); padding: 30px; }
+.stations { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 24px 0; counter-reset: st; }
+.station {
+  position: relative; counter-increment: st; background: var(--cream); border: 3px solid var(--ink); border-radius: 18px;
+  padding: 18px; transition: transform 0.2s, background 0.2s, box-shadow 0.2s; box-shadow: 0 0 0 var(--ink);
+}
+.station::before { content: counter(st); position: absolute; top: -16px; left: 14px; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--cream); display: grid; place-items: center; font-family: var(--mono); font-weight: 700; }
+.station:not(:last-child)::after { content: '\2192'; position: absolute; right: -19px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 800; z-index: 2; background: var(--cream); border-radius: 50%; width: 20px; text-align: center; }
+.station h4 { font-size: 1.2rem; margin-top: 6px; }
+.station p { font-size: 0.92rem; line-height: 1.45; }
+.station.active { background: var(--c); transform: translate(-4px, -6px); box-shadow: 6px 8px 0 var(--ink); }
+.console {
+  background: var(--ink); color: #9DF7BB; border-radius: 16px; padding: 18px 20px;
+  font-family: var(--mono); font-size: 0.9rem; min-height: 190px; line-height: 1.8; border: 3px solid var(--ink);
+}
+.console .line { display: block; animation: pop 0.3s ease; }
+.console .who { color: var(--yellow); font-weight: 700; }
+.console .idle { color: #8C8AA5; }
+@keyframes pop { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+.sim-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.btn[disabled] { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: 5px 5px 0 var(--ink); }
+
+/* Roadmap */
+.levels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.level { background: var(--white); border: 3px solid var(--ink); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); position: relative; }
+.level .tag { display: inline-block; background: var(--c); border: 2px solid var(--ink); border-radius: 999px; padding: 3px 12px; font-family: var(--mono); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; }
+.level h3 { margin: 14px 0 8px; font-size: 1.35rem; letter-spacing: -0.02em; line-height: 1.2; }
+.level p { font-size: 0.98rem; }
+.level p a { font-weight: 700; text-decoration-thickness: 3px; text-decoration-color: var(--pink); text-underline-offset: 3px; }
+.level p a:hover { background: var(--yellow); }
+.meter { height: 16px; border: 3px solid var(--ink); border-radius: 999px; margin-top: 18px; background: var(--cream); overflow: hidden; }
+.meter i { display: block; height: 100%; width: var(--w); background: var(--c); border-right: 3px solid var(--ink); }
+
+/* Careers */
+.chips { display: flex; flex-wrap: wrap; gap: 14px; }
+.chip { background: var(--c); border: 3px solid var(--ink); border-radius: 999px; padding: 10px 22px; font-weight: 800; box-shadow: 4px 4px 0 var(--ink); transform: rotate(var(--r)); transition: transform 0.15s; }
+.chip:hover { transform: rotate(0) scale(1.06); }
+
+/* Link cards */
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.card {
+  display: flex; flex-direction: column; text-decoration: none; background: var(--white);
+  border: 3px solid var(--ink); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.card:hover, .card:focus-visible { transform: translate(-5px, -5px); box-shadow: 11px 11px 0 var(--ink); }
+.card .band { background: var(--c); border-bottom: 3px solid var(--ink); padding: 12px 22px; display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; }
+.card .in { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card h3 { font-size: 1.4rem; line-height: 1.2; letter-spacing: -0.02em; }
+.card p { font-size: 1rem; }
+.card .go { margin-top: auto; padding-top: 8px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; }
+.card .go span { display: inline-block; transition: transform 0.15s; }
+.card:hover .go span { transform: translateX(6px); }
+.num { font-size: 2.6rem; font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
+
+/* FAQ */
+.faq { max-width: 860px; display: grid; gap: 16px; }
+details { background: var(--white); border: 3px solid var(--ink); border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); padding: 0; }
+summary { list-style: none; cursor: pointer; padding: 18px 22px; font-weight: 800; font-size: 1.12rem; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; display: grid; place-items: center; flex: none; width: 32px; height: 32px; border: 3px solid var(--ink); border-radius: 50%; background: var(--yellow); font-family: var(--mono); font-weight: 700; transition: transform 0.2s; }
+details[open] summary::after { content: '\2212'; background: var(--green); }
+details p { padding: 0 22px 20px; }
+
+/* Big CTA */
+.cta { margin: 90px 0 0; }
+.cta-box {
+  background: var(--orange); border: 3px solid var(--ink); border-radius: 32px; box-shadow: var(--shadow-lg);
+  padding: clamp(28px, 5vw, 60px); display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 30px; align-items: center; position: relative; overflow: hidden;
+}
+.cta-box h2 { margin-top: 0; }
+.cta-box p { margin: 14px 0 26px; max-width: 54ch; font-size: 1.12rem; }
+.cta-box .art { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; transform: rotate(6deg); }
+.cta-box .art i { aspect-ratio: 1; border: 3px solid var(--ink); border-radius: 18px; box-shadow: 4px 4px 0 var(--ink); }
+.cta-box .art i:nth-child(1) { background: var(--green); }
+.cta-box .art i:nth-child(2) { background: var(--yellow); }
+.cta-box .art i:nth-child(3) { background: var(--pink); }
+.cta-box .art i:nth-child(4) { background: var(--blue); }
+
+/* Footer */
+footer.site { margin-top: 90px; background: var(--ink); color: var(--cream); border-top: 3px solid var(--ink); padding: 60px 0 30px; }
+.fgrid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; }
+footer .brand { color: var(--cream); margin-bottom: 14px; }
+footer .logo { border-color: var(--cream); }
+footer h4 { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem; color: var(--yellow); margin-bottom: 14px; }
+footer ul { list-style: none; display: grid; gap: 10px; }
+footer a { text-decoration: none; opacity: 0.9; }
+footer li a:hover { color: var(--yellow); opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+.legal { margin-top: 44px; padding-top: 22px; border-top: 2px dashed rgba(255,246,229,0.3); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-family: var(--mono); font-size: 0.82rem; opacity: 0.85; }
+
+/* Reveal */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+:focus-visible { outline: 4px solid var(--blue); outline-offset: 3px; }
+
+/* Responsive */
+@media (max-width: 1040px) {
+  .grid4, .levels { grid-template-columns: repeat(2, 1fr); }
+  .stations { grid-template-columns: repeat(2, 1fr); }
+  .station:nth-child(2)::after { display: none; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .visual { max-width: 560px; }
+  .cta-box { grid-template-columns: 1fr; }
+  .cta-box .art { max-width: 220px; }
+}
+@media (max-width: 820px) {
+  .menu-btn { display: block; }
+  nav.main {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; background: var(--cream);
+    border-bottom: 3px solid var(--ink); padding: 14px 4%;
+  }
+  nav.main.open { display: flex; }
+  nav.main a { text-align: center; border-color: var(--ink); background: var(--white); }
+  .hdr-cta { display: none; }
+  .grid2 { grid-template-columns: 1fr; }
+  .fgrid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .grid4, .levels, .stations { grid-template-columns: 1fr; }
+  .station::after { display: none !important; }
+  .sim { padding: 20px; }
+  .hero { padding-top: 40px; }
+  .sticker { width: 96px; height: 96px; font-size: 0.78rem; }
+  .btn { width: 100%; justify-content: center; }
+  .cta-row { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="MEAN Stack Playground home">
+      <span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      MEAN Playground
+    </a>
+    <button class="menu-btn" id="navBtn" aria-expanded="false" aria-controls="nav">MENU</button>
+    <nav class="main" id="nav" aria-label="Primary">
+      <a href="#stack">The Stack</a>
+      <a href="#journey">Request Journey</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#programs">Programs</a>
+      <a href="#reads">Guides</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn small hdr-cta" href="https://www.justacademy.co/job-bootcamp-detail/pune/mean-stack-developer-bootcamp-in-pune-enterprise-web-application-training" target="_blank" rel="noopener noreferrer">Join the Bootcamp</a>
+  </div>
+</header>
+
+<main id="main">
+<div id="top"></div>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">MEAN Stack Career Playground</span>
+      <h1>Four letters. One language. <mark>A whole career.</mark></h1>
+      <p class="lead">MongoDB, Express, Angular and Node.js walk into a browser, and out comes a complete web application. This playground explains the MEAN stack in plain words, lets you watch a request travel through it, and points you to guides, courses and bootcamps when you are ready to build.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://www.justacademy.co/job-bootcamp-detail/pune/mean-stack-developer-bootcamp-in-pune-enterprise-web-application-training" target="_blank" rel="noopener noreferrer">Explore the MEAN Bootcamp <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn white" href="https://www.justacademy.co/blog-detail/mean-stack-development-explained-angular-nodejs-mongodb-career-guide" target="_blank" rel="noopener noreferrer">Read the Career Guide</a>
+      </div>
+      <div class="facts">
+        <span class="fact">1 language</span>
+        <span class="fact">4 tools</span>
+        <span class="fact">Endless projects</span>
+      </div>
+    </div>
+
+    <div class="visual" aria-hidden="true">
+      <div class="sticker">One language everywhere</div>
+      <div class="tiles">
+        <div class="tile" style="--c: var(--green); --r: -3deg; --d: 0s;"><b>M</b><span>MongoDB</span></div>
+        <div class="tile" style="--c: var(--yellow); --r: 2.5deg; --d: 0.6s;"><b>E</b><span>Express.js</span></div>
+        <div class="tile" style="--c: var(--pink); --r: 2deg; --d: 1.2s;"><b>A</b><span>Angular</span></div>
+        <div class="tile" style="--c: var(--blue); --r: -2.5deg; --d: 1.8s;"><b>N</b><span>Node.js</span></div>
+      </div>
+      <div class="code"><span class="c">// one language, whole app</span><br><span class="k">app</span>.get(<span class="s">'/playlist'</span>, <span class="k">async</span> (req, res) =&gt; {<br>&nbsp;&nbsp;<span class="k">const</span> songs = <span class="k">await</span> Song.find();<br>&nbsp;&nbsp;res.json(songs);<br>});</div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <div><span>MongoDB</span><em></em><span>Express.js</span><em></em><span>Angular</span><em></em><span>Node.js</span><em></em><span>TypeScript</span><em></em><span>REST APIs</span><em></em><span>JSON</span><em></em><span>Ship it</span><em></em></div>
+    <div><span>MongoDB</span><em></em><span>Express.js</span><em></em><span>Angular</span><em></em><span>Node.js</span><em></em><span>TypeScript</span><em></em><span>REST APIs</span><em></em><span>JSON</span><em></em><span>Ship it</span><em></em></div>
+  </div>
+</div>
+
+<section class="block" id="stack">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Meet the crew</span>
+      <h2>Four tools, each with one clear job</h2>
+      <p class="sub">The MEAN stack covers a whole web application, from the place where data sleeps to the button somebody taps on their phone. Here is who does what.</p>
+    </div>
+    <div class="grid4">
+      <article class="letter reveal" style="--c: var(--green);">
+        <div class="top"><b>M</b><small>Database</small></div>
+        <div class="body"><h3>MongoDB</h3><p class="role">The memory</p><p>Stores your data as flexible documents that look like JavaScript objects, so your database speaks the same language as the rest of your app.</p></div>
+      </article>
+      <article class="letter reveal" style="--c: var(--yellow);">
+        <div class="top"><b>E</b><small>Server framework</small></div>
+        <div class="body"><h3>Express.js</h3><p class="role">The traffic controller</p><p>Receives every request, decides which function should answer it, and keeps login checks and error replies neatly organised.</p></div>
+      </article>
+      <article class="letter reveal" style="--c: var(--pink);">
+        <div class="top"><b>A</b><small>Frontend</small></div>
+        <div class="body"><h3>Angular</h3><p class="role">The face</p><p>A frontend framework from Google that turns data into screens, forms and interactions people actually enjoy using.</p></div>
+      </article>
+      <article class="letter reveal" style="--c: var(--blue);">
+        <div class="top"><b>N</b><small>Runtime</small></div>
+        <div class="body"><h3>Node.js</h3><p class="role">The engine</p><p>Runs JavaScript on the server and juggles thousands of requests at once, which is why so many busy apps quietly rely on it.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="journey">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Try it yourself</span>
+      <h2>Watch one tap travel through the whole stack</h2>
+      <p class="sub">Imagine you open a music app and tap a playlist. Press the button and see which tool wakes up at each step.</p>
+    </div>
+    <div class="sim reveal">
+      <div class="stations" id="stations">
+        <div class="station" style="--c: var(--pink);"><h4>Angular</h4><p>Notices the tap and asks the server for the playlist.</p></div>
+        <div class="station" style="--c: var(--yellow);"><h4>Express</h4><p>Matches the route and checks who is asking.</p></div>
+        <div class="station" style="--c: var(--blue);"><h4>Node.js</h4><p>Runs the handler that fetches the songs.</p></div>
+        <div class="station" style="--c: var(--green);"><h4>MongoDB</h4><p>Finds the documents and hands them back.</p></div>
+      </div>
+      <div class="console" id="console" role="status" aria-live="polite"><span class="line idle">Waiting for a tap. Press the button below.</span></div>
+      <div class="sim-actions" style="margin-top: 22px;">
+        <button class="btn pink" id="playBtn" type="button">Tap the playlist</button>
+        <button class="btn white" id="resetBtn" type="button">Reset</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="roadmap">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Your game plan</span>
+      <h2>A four level roadmap that will not burn you out</h2>
+      <p class="sub">Take it one level at a time. Each stage makes the next one feel easier, and every level ends with something you can build and show off.</p>
+    </div>
+    <div class="levels">
+      <article class="level reveal" style="--c: var(--green); --w: 25%;">
+        <span class="tag">Level 1</span>
+        <h3>Speak JavaScript fluently</h3>
+        <p>Variables, functions, arrays, objects, promises and async code, plus enough HTML and CSS to look presentable. A structured <a href="https://www.justacademy.co/course-detail/pune/javascript-training-in-pune" target="_blank" rel="noopener noreferrer">JavaScript training course</a> can shorten this climb.</p>
+        <div class="meter" aria-hidden="true"><i></i></div>
+      </article>
+      <article class="level reveal" style="--c: var(--yellow); --w: 50%;">
+        <span class="tag">Level 2</span>
+        <h3>Build the backend first</h3>
+        <p>Create an API with Node.js and Express, connect it to MongoDB, practise create, read, update and delete, then add login and protect your routes.</p>
+        <div class="meter" aria-hidden="true"><i></i></div>
+      </article>
+      <article class="level reveal" style="--c: var(--pink); --w: 75%;">
+        <span class="tag">Level 3</span>
+        <h3>Dress it up with Angular and ship</h3>
+        <p>Learn components, services, routing and forms, join everything into a complete project and put it online so a recruiter can click it.</p>
+        <div class="meter" aria-hidden="true"><i></i></div>
+      </article>
+      <article class="level reveal" style="--c: var(--blue); --w: 100%;">
+        <span class="tag">Bonus level</span>
+        <h3>Add a second superpower</h3>
+        <p>Scripting, automation and data skills pair nicely with a web profile. Explore <a href="https://www.justacademy.co/course-detail/pune/python-training-in-pune" target="_blank" rel="noopener noreferrer">Python training</a> when you are ready.</p>
+        <div class="meter" aria-hidden="true"><i></i></div>
+      </article>
+    </div>
+
+    <div class="head reveal" style="margin-top: 60px;">
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem);">Doors this skill set can open</h2>
+    </div>
+    <div class="chips reveal">
+      <span class="chip" style="--c: var(--green); --r: -2deg;">MEAN Stack Developer</span>
+      <span class="chip" style="--c: var(--yellow); --r: 1.5deg;">Full Stack Developer</span>
+      <span class="chip" style="--c: var(--pink); --r: -1deg;">Angular Developer</span>
+      <span class="chip" style="--c: var(--blue); --r: 2deg;">Node.js Backend Developer</span>
+      <span class="chip" style="--c: var(--orange); --r: -1.5deg;">Web Application Engineer</span>
+      <span class="chip" style="--c: var(--green); --r: 1deg;">API Developer</span>
+      <span class="chip" style="--c: var(--yellow); --r: -2deg;">Product Startup Engineer</span>
+      <span class="chip" style="--c: var(--pink); --r: 1.5deg;">Tech Lead, one day</span>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="programs">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Ready to build</span>
+      <h2>Pick your path in Pune</h2>
+      <p class="sub">Guided bootcamps and courses for learners who want mentors, projects and a clear finish line. Every card below opens in a new tab.</p>
+    </div>
+    <div class="grid2">
+      <a class="card reveal" style="--c: var(--pink);" href="https://www.justacademy.co/job-bootcamp-detail/pune/mean-stack-developer-bootcamp-in-pune-enterprise-web-application-training" target="_blank" rel="noopener noreferrer">
+        <div class="band"><span>Featured bootcamp</span><span>Pune</span></div>
+        <div class="in">
+          <h3>MEAN Stack Developer Bootcamp in Pune</h3>
+          <p>Enterprise web application training built around Angular, Node.js, Express and MongoDB, so you learn the whole stack by building with it.</p>
+          <span class="go">Open the bootcamp <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="card reveal" style="--c: var(--yellow);" href="https://www.justacademy.co/job-bootcamp-detail/pune/full-stack-developer-pro-bootcamp-in-pune-job-oriented-web-development-training" target="_blank" rel="noopener noreferrer">
+        <div class="band"><span>Bootcamp</span><span>Pune</span></div>
+        <div class="in">
+          <h3>Full Stack Developer Pro Bootcamp in Pune</h3>
+          <p>Job focused web development training for learners who want a wider full stack toolkit and a portfolio to match.</p>
+          <span class="go">Open the bootcamp <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="card reveal" style="--c: var(--green);" href="https://www.justacademy.co/course-detail/pune/javascript-training-in-pune" target="_blank" rel="noopener noreferrer">
+        <div class="band"><span>Course</span><span>Pune</span></div>
+        <div class="in">
+          <h3>JavaScript Training in Pune</h3>
+          <p>Build the language foundation that the entire MEAN stack stands on, from core concepts to modern async code.</p>
+          <span class="go">Open the course <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="card reveal" style="--c: var(--blue);" href="https://www.justacademy.co/course-detail/pune/python-training-in-pune" target="_blank" rel="noopener noreferrer">
+        <div class="band"><span>Course</span><span>Pune</span></div>
+        <div class="in">
+          <h3>Python Training in Pune</h3>
+          <p>Add scripting, automation and data skills to your developer profile and widen the roles you can aim for.</p>
+          <span class="go">Open the course <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="reads">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Keep reading</span>
+      <h2>Four guides worth your evening</h2>
+      <p class="sub">Roadmaps, skill lists and explainers to take you from curious to confident.</p>
+    </div>
+    <div class="grid2">
+      <a class="card reveal" style="--c: var(--yellow);" href="https://www.justacademy.co/blog-detail/mean-stack-developer-roadmap-2026-skills-projects-and-career-opportunities" target="_blank" rel="noopener noreferrer">
+        <div class="band"><span>Guide</span><span class="num">01</span></div>
+        <div class="in">
+          <h3>MEAN Stack Developer Roadmap 2026: Skills, Projects and Career Opportunities</h3>
+          <p>A clear map of the skills to learn, the projects to build and the roles to aim for.</p>
+          <span class="go">Read the guide <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="card reveal" style="--c: var(--pink);" href="https://www.justacademy.co/blog-detail/angular-developer-roadmap-2026-skills-and-projects-required-for-jobs" target="_blank" rel="noopener noreferrer">
+        <div class="band"><span>Guide</span><span class="num">02</span></div>
+        <div class="in">
+          <h3>Angular Developer Roadmap 2026: Skills and Projects Required for Jobs</h3>
+          <p>Go deeper on the A in MEAN with a focused Angular plan and project ideas.</p>
+          <span class="go">Read the guide <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="card reveal" style="--c: var(--blue);" href="https://www.justacademy.co/blog-detail/mern-stack-developer-skills-companies-look-for-in-2026" target="_blank" rel="noopener noreferrer">
+        <div class="band"><span>Guide</span><span class="num">03</span></div>
+        <div class="in">
+          <h3>MERN Stack Developer Skills Companies Look For in 2026</h3>
+          <p>Curious about the React cousin of this stack? See what employers ask for.</p>
+          <span class="go">Read the guide <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="card reveal" style="--c: var(--green);" href="https://www.justacademy.co/blog-detail/mean-stack-development-explained-angular-nodejs-mongodb-career-guide" target="_blank" rel="noopener noreferrer">
+        <div class="band"><span>Guide</span><span class="num">04</span></div>
+        <div class="in">
+          <h3>MEAN Stack Development Explained: Angular, Node.js & MongoDB Career Guide</h3>
+          <p>The full explainer on how the four tools fit together and where the career can go.</p>
+          <span class="go">Read the guide <span aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Quick answers</span>
+      <h2>Questions people ask before they start</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal" open>
+        <summary>What does MEAN stand for?</summary>
+        <p>MongoDB, Express.js, Angular and Node.js. Together they cover the database, the server, the frontend and the runtime, all written in JavaScript.</p>
+      </details>
+      <details class="reveal">
+        <summary>Is the MEAN stack good for beginners?</summary>
+        <p>Yes, as long as you begin with JavaScript basics. It is a wonderful teaching stack because you see the whole journey of data, from a click in the browser to a record in a database and back again.</p>
+      </details>
+      <details class="reveal">
+        <summary>MEAN or MERN, which should I pick?</summary>
+        <p>They share MongoDB, Express and Node.js. The difference is the frontend: MEAN uses Angular, which brings more structure, while MERN uses React, which brings more flexibility. Guide number three above lists the skills employers look for on the MERN side.</p>
+      </details>
+      <details class="reveal">
+        <summary>What projects should I build first?</summary>
+        <p>A notes app, a habit tracker, a job board or an expense tracker. Finish two or three, put them online, and be ready to explain the choices you made.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div>
+        <h2>Stop reading about it. Start building it.</h2>
+        <p>Pick one small project idea today, sketch the data it needs to remember, and start a Node server that says hello. When you want a guided route, the MEAN Stack bootcamp in Pune is one click away.</p>
+        <a class="btn white" href="https://www.justacademy.co/job-bootcamp-detail/pune/mean-stack-developer-bootcamp-in-pune-enterprise-web-application-training" target="_blank" rel="noopener noreferrer">See the MEAN Bootcamp <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="art" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#top"><span class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i></span>MEAN Playground</a>
+        <p>A friendly corner of the internet for anyone curious about MongoDB, Express, Angular and Node.js. Built for learners in Pune and beyond.</p>
+      </div>
+      <div>
+        <h4>Learn with us</h4>
+        <ul>
+          <li><a href="https://www.justacademy.co/job-bootcamp-detail/pune/mean-stack-developer-bootcamp-in-pune-enterprise-web-application-training" target="_blank" rel="noopener noreferrer">MEAN Stack Developer Bootcamp</a></li>
+          <li><a href="https://www.justacademy.co/job-bootcamp-detail/pune/full-stack-developer-pro-bootcamp-in-pune-job-oriented-web-development-training" target="_blank" rel="noopener noreferrer">Full Stack Developer Pro Bootcamp</a></li>
+          <li><a href="https://www.justacademy.co/course-detail/pune/javascript-training-in-pune" target="_blank" rel="noopener noreferrer">JavaScript Training in Pune</a></li>
+          <li><a href="https://www.justacademy.co/course-detail/pune/python-training-in-pune" target="_blank" rel="noopener noreferrer">Python Training in Pune</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Read next</h4>
+        <ul>
+          <li><a href="https://www.justacademy.co/blog-detail/mean-stack-developer-roadmap-2026-skills-projects-and-career-opportunities" target="_blank" rel="noopener noreferrer">MEAN Stack Developer Roadmap 2026</a></li>
+          <li><a href="https://www.justacademy.co/blog-detail/angular-developer-roadmap-2026-skills-and-projects-required-for-jobs" target="_blank" rel="noopener noreferrer">Angular Developer Roadmap 2026</a></li>
+          <li><a href="https://www.justacademy.co/blog-detail/mern-stack-developer-skills-companies-look-for-in-2026" target="_blank" rel="noopener noreferrer">MERN Stack Developer Skills 2026</a></li>
+          <li><a href="https://www.justacademy.co/blog-detail/mean-stack-development-explained-angular-nodejs-mongodb-career-guide" target="_blank" rel="noopener noreferrer">MEAN Stack Development Explained</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; <span id="year">2026</span> MEAN Stack Career Playground</span>
+      <span>Pure HTML, CSS and JavaScript. Ready for GitHub Pages.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('navBtn');
+  var nav = document.getElementById('nav');
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  var stations = document.querySelectorAll('#stations .station');
+  var box = document.getElementById('console');
+  var play = document.getElementById('playBtn');
+  var reset = document.getElementById('resetBtn');
+  var running = false;
+  var token = 0;
+  var steps = [
+    { i: 0, who: 'Angular', msg: 'User tapped Play. Sending GET /playlist to the server.' },
+    { i: 1, who: 'Express', msg: 'Route matched. Checking that the user is logged in.' },
+    { i: 2, who: 'Node.js', msg: 'Handler running. Asking the database for the songs.' },
+    { i: 3, who: 'MongoDB', msg: 'Found 12 songs. Sending them back as JSON.' },
+    { i: 0, who: 'Angular', msg: 'List received. Screen updated in about 80ms. Enjoy the music.' }
+  ];
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function clearActive() { stations.forEach(function (s) { s.classList.remove('active'); }); }
+  function addLine(who, msg) {
+    var line = document.createElement('span');
+    line.className = 'line';
+    line.innerHTML = '<span class="who"></span> <span class="txt"></span>';
+    line.querySelector('.who').textContent = who + ':';
+    line.querySelector('.txt').textContent = msg;
+    box.appendChild(line);
+  }
+  function resetSim() {
+    token++;
+    running = false;
+    play.disabled = false;
+    clearActive();
+    box.innerHTML = '<span class="line idle">Waiting for a tap. Press the button below.</span>';
+  }
+  play.addEventListener('click', async function () {
+    if (running) return;
+    running = true;
+    var mine = ++token;
+    play.disabled = true;
+    box.innerHTML = '';
+    for (var n = 0; n < steps.length; n++) {
+      if (mine !== token) return;
+      clearActive();
+      stations[steps[n].i].classList.add('active');
+      addLine(steps[n].who, steps[n].msg);
+      await sleep(950);
+    }
+    if (mine !== token) return;
+    clearActive();
+    running = false;
+    play.disabled = false;
+  });
+  reset.addEventListener('click', resetSim);
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
